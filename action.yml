@@ -20,3 +20,13 @@ runs:
         # Set the output variable
         echo "greeting=$GREETING" >> $GITHUB_OUTPUT
       shell: bash  
+    - name: Set up Maven cache 1
+      id: cache-maven1
+      uses: actions/cache@v4
+      with:
+        path: |
+          ~/.m2/repository
+          target
+        key: ${{ runner.os }}-maven-
+        restore-keys: |
+          ${{ runner.os }}-maven-         
